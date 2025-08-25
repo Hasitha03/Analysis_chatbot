@@ -90,7 +90,7 @@ def analyze_query_with_llm(user_query: str, available_periods: List[str]) -> Dic
 
     Please return a JSON response with the following structure:
     {{
-        "analysis_type": "oee(sites) " or "net_sales(clusters) ",
+        "analysis_type": "oee(sites) " or "net_sales ",
         "visualization_type": "comparison" or "chart" or "trend",
         "periods": ["period1", "period2"] or ["all"] for charts,
         "focus": "drivers" or "draggers" or "both" or "summary",
@@ -146,7 +146,7 @@ def analyze_query_simple(user_query: str, available_periods: List[str]) -> Dict:
     query_lower = user_query.lower()
 
     # Determine analysis type
-    is_net_sales = any(term in query_lower for term in ["net sales", "sales", "Clusters"])
+    is_net_sales = any(term in query_lower for term in ["net sales", "Clusters" , "sales"])
     analysis_type = "net_sales" if is_net_sales else "oee"
 
     # Determine visualization type
@@ -334,7 +334,7 @@ if user_input := st.chat_input(
 
     # Handle comparison requests
     else:
-        if query_analysis["analysis_type"] == "net_sales(clusters)":
+        if query_analysis["analysis_type"] == "net_sales":
             df = load_net_sales_data()
             if df is None:
                 reply = "⚠️ Net Sales data file not found."
