@@ -6,7 +6,7 @@ from typing import Dict, List, Tuple, Optional
 import json
 
 st.set_page_config(page_title="OEE and Net Sales Analysis", layout="wide")
-st.title("💬 Analysis Chatbot")
+st.subheader("💬 Analysis Chatbot")
 
 # --- Configuration ---
 # Add your OpenAI API key here or use Streamlit secrets
