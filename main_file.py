@@ -90,7 +90,7 @@ def analyze_query_with_llm(user_query: str, available_periods: List[str]) -> Dic
 
     Please return a JSON response with the following structure:
     {{
-        "analysis_type": "oee" or "net_sales",
+        "analysis_type": "oee(sites) " or "net_sales (Clusters) ",
         "visualization_type": "comparison" or "chart" or "trend",
         "periods": ["period1", "period2"] or ["all"] for charts,
         "focus": "drivers" or "draggers" or "both" or "summary",
@@ -99,7 +99,7 @@ def analyze_query_with_llm(user_query: str, available_periods: List[str]) -> Dic
     }}
 
     Guidelines:
-    - If query mentions "net sales", "sales", "revenue" → analysis_type: "net_sales"
+    - If query mentions "net sales", "Clusters", "sales", "revenue" → analysis_type: "net_sales"
     - If query mentions "oee", "equipment effectiveness" or neither specified → analysis_type: "oee"
     - If query asks for "chart", "plot", "trends", "graph" → visualization_type: "chart"
     - If query asks about specific periods comparison → visualization_type: "comparison"
