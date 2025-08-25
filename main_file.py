@@ -265,7 +265,7 @@ def display_data_table(data: pd.DataFrame, title: str):
     """Display data table with proper formatting"""
     if not data.empty:
         st.markdown(f"**{title}:**")
-        st.markdown(data.to_markdown(index=False))
+        st.dataframe(data)
         st.markdown("")  # Add spacing
 
 
